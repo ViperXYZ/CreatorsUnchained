@@ -1,8 +1,8 @@
 {
 	"id": "creator-app",
 	"name": "creator-app",
-	"description": "A skeleton dapp",
+	"description": "Empowering creators with profit-content freedom",
 	"version": "0.1",
-	"author": "Asic Chen",
-	"iconUrl": "title.png"
+	"author": "z",
+	"iconUrl": "icon.png"
 }
