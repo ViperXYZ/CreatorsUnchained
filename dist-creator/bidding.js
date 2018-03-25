@@ -15,8 +15,10 @@ $(document).ready(function() {
 submitBtn.onclick = function () {
     console.log("s " + Web3);
     if (typeof web3 !== 'undefined') {
+        console.log("branch 1");
         web3 = new Web3(web3.currentProvider);
     } else {
+        console.log("branch 2");
         // set the provider you want from Web3.providers
         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
     }
@@ -43,6 +45,9 @@ submitBtn.onclick = function () {
     eth.blockNumber;
 
     console.log("Creating a bid for " + name);
-    jsonInterface = {}
-    // contract = new web3.eth.Contract(jsonInterface)
+    var jsonInterface = [{"constant":false,"inputs":[{"name":"bidding_end","type":"uint256"},{"name":"beneficiary","type":"address"},{"name":"name","type":"string"},{"name":"description","type":"string"},{"name":"email","type":"string"}],"name":"new_auction","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"auctions","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"id","type":"uint256"}],"name":"NewAuction","type":"event"}];
+    var contract = web3.eth.contract(jsonInterface);
+    var instance = contract.at("0x7C276DcAab99BD16163c1bcce671CaD6A1ec0945");
+    console.log(instance.new_auction);
+    instance.new_auction(+new Date+100,eth.defaultAccount,"name","description", "email", function(err,result){console.log([err,result]);});
 };
