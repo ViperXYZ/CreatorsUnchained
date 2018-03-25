@@ -56,6 +56,18 @@ contract AdAuction {
     event AuctionEnded(uint winner_id);
     event WithdrawAvailable(address owner, uint value);
 
+    function get_bid(uint _id) public view returns (uint id, uint value, address owner, string _name, string _email) {
+        Bid storage it = bids[_id];
+        id = it.id;
+        value = it.value;
+        owner = it.owner;
+        _name = it.name;
+        _email = it.email;
+    }
+    function num_bids() public view returns (uint) {
+        return bids.length;
+    }
+
     // The following is a so-called natspec comment,
     // recognizable by the three slashes.
     // It will be shown when the user is asked to
