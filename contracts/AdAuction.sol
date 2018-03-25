@@ -70,7 +70,7 @@ contract AdAuction {
         beneficiary = _beneficiary;
         bidding_end = _bidding_end;
         name = _name;
-        description = _name;
+        description = _description;
         email = _email;
     }
 
