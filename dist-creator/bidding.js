@@ -47,7 +47,11 @@ submitBtn.onclick = function () {
     console.log("Creating a bid for " + name);
     var jsonInterface = [{"constant":false,"inputs":[{"name":"bidding_end","type":"uint256"},{"name":"beneficiary","type":"address"},{"name":"name","type":"string"},{"name":"description","type":"string"},{"name":"email","type":"string"}],"name":"new_auction","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"auctions","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"id","type":"uint256"}],"name":"NewAuction","type":"event"}];
     var contract = web3.eth.contract(jsonInterface);
-    var instance = contract.at("0x53F6337d308FfB2c52eDa319Be216cC7321D3725");
-    console.log(eth.defaultAccount);
-    instance.new_auction(+new Date+100,eth.defaultAccount,"foo","bar", "baz", function(err,result){console.log([err,result])});
+    var instance = contract.at("0x492934308E98b590A626666B703A6dDf2120e85e");
+    console.log(deadline);
+    instance.new_auction(Date.parse(deadline) / 1000, eth.defaultAccount, name, desc, email, function(err,result){console.log([err,result])});
 };
+
+function updateContracts() {
+    
+}
