@@ -58,6 +58,8 @@ contract AdAuction {
         // Revert the call if the bidding
         // period is over.
         require(now <= bidding_end);
+        require(!ended);
+        require(msg.sender != beneficiary);
 
         Bid memory it = Bid(
             bids.length,
@@ -70,6 +72,9 @@ contract AdAuction {
 
     /// Withdraw a bid that not accepted.
     function withdraw() public returns (bool) {
+        require(now > bidding_end);
+        require(ended);
+
         uint amount = pending_returns[msg.sender];
         if (amount > 0) {
             // It is important to set this to zero because the recipient
