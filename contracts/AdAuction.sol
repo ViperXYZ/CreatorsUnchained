@@ -1,6 +1,22 @@
 // inspired by https://solidity.readthedocs.io/en/develop/solidity-by-example.html
 pragma solidity ^0.4.21;
 
+contract AuctionList {
+    AdAuction[] public auctions;
+
+    function AuctionList() public { }
+
+    event NewAuction(uint id);
+
+    function new_auction(
+        uint bidding_end,
+        address beneficiary
+    ) public {
+        auctions.push(new AdAuction(bidding_end, beneficiary));
+        emit NewAuction(auctions.length - 1);
+    }
+}
+
 contract AdAuction {
     // Parameters of the auction. Times are either
     // absolute unix timestamps (seconds since 1970-01-01)
@@ -58,6 +74,8 @@ contract AdAuction {
         // Revert the call if the bidding
         // period is over.
         require(now <= bidding_end);
+        require(!ended);
+        require(msg.sender != beneficiary);
 
         Bid memory it = Bid(
             bids.length,
@@ -70,6 +88,9 @@ contract AdAuction {
 
     /// Withdraw a bid that not accepted.
     function withdraw() public returns (bool) {
+        require(now > bidding_end);
+        require(ended);
+
         uint amount = pending_returns[msg.sender];
         if (amount > 0) {
             // It is important to set this to zero because the recipient
@@ -96,8 +117,10 @@ contract AdAuction {
         ended = true;
         Bid storage it = bids[bid_id];
         for (uint i = 0; i < bids.length; i++) {
-            pending_returns[bids[i].owner] = bids[i].value;
-            emit WithdrawAvailable(bids[i].owner, bids[i].value);
+            if (i != bid_id) {
+                pending_returns[bids[i].owner] = bids[i].value;
+                emit WithdrawAvailable(bids[i].owner, bids[i].value);
+            }
         }
         pending_returns[beneficiary] = it.value;
         emit WithdrawAvailable(beneficiary, it.value);
