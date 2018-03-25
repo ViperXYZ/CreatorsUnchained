@@ -117,8 +117,10 @@ contract AdAuction {
         ended = true;
         Bid storage it = bids[bid_id];
         for (uint i = 0; i < bids.length; i++) {
-            pending_returns[bids[i].owner] = bids[i].value;
-            emit WithdrawAvailable(bids[i].owner, bids[i].value);
+            if (i != bid_id) {
+                pending_returns[bids[i].owner] = bids[i].value;
+                emit WithdrawAvailable(bids[i].owner, bids[i].value);
+            }
         }
         pending_returns[beneficiary] = it.value;
         emit WithdrawAvailable(beneficiary, it.value);
