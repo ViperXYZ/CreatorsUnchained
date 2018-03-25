@@ -10,9 +10,12 @@ contract AuctionList {
 
     function new_auction(
         uint bidding_end,
-        address beneficiary
+        address beneficiary,
+        string name,
+        string description,
+        string email
     ) public {
-        auctions.push(new AdAuction(bidding_end, beneficiary));
+        auctions.push(new AdAuction(bidding_end, beneficiary, name, description, email));
         emit NewAuction(auctions.length - 1);
     }
 }
@@ -23,11 +26,16 @@ contract AdAuction {
     // or time periods in seconds.
     address public beneficiary;
     uint public bidding_end;
+    string public name;
+    string public description;
+    string public email;
 
     struct Bid {
         uint id;
         uint value;
         address owner;
+        string name;
+        string email;
     }
 
     // Storage for all bids
@@ -54,17 +62,23 @@ contract AdAuction {
     /// beneficiary address `_beneficiary`.
     function AdAuction(
         uint _bidding_end,
-        address _beneficiary
+        address _beneficiary,
+        string _name,
+        string _description,
+        string _email
     ) public {
         beneficiary = _beneficiary;
         bidding_end = _bidding_end;
+        name = _name;
+        description = _name;
+        email = _email;
     }
 
     /// Bid on the auction with the value sent
     /// together with this transaction.
     /// The value will only be refunded if the
     /// auction is not won.
-    function bid() public payable {
+    function bid(string _name, string _email) public payable {
         // No arguments are necessary, all
         // information is already part of
         // the transaction. The keyword payable
@@ -80,7 +94,9 @@ contract AdAuction {
         Bid memory it = Bid(
             bids.length,
             msg.value,
-            msg.sender
+            msg.sender,
+            _name,
+            _email
         );
         bids.push(it);
         emit NewBid(it.id);
