@@ -1,8 +1,8 @@
 {
 	"id": "advertiser-app",
 	"name": "advertiser-app",
-	"description": "A skeleton dapp",
+	"description": "Freedom from advert chains via blockchains",
 	"version": "0.1",
-	"author": "Asic Chen",
-	"iconUrl": "title.png"
+	"author": "z",
+	"iconUrl": "icon.png"
 }
