@@ -7,11 +7,9 @@ var deadlineInput = document.getElementById("deadline")
 var submitBtn = document.getElementById("submit");
 
 $(document).ready(function() {
-
         //init DateTimePickers
         materialKit.initFormExtendedDatetimepickers();
-        updateContracts();
-});
+    });
 
 submitBtn.onclick = function () {
     console.log("s " + Web3);
@@ -35,35 +33,23 @@ submitBtn.onclick = function () {
     var contract = web3.eth.contract(jsonInterface);
     instance = contract.at("0x5c2d5f9401d0F34D427185f0D0D8F8fAEe7e4d82");
     instance.new_auction(Date.parse(deadline) / 1000, eth.defaultAccount, name, desc, email, tags, profile,
-    function(err,result){
-        if(err) {
-            console.error(err);
-        }
-        else {
-            console.log("Success!");
-            updateContracts();
-        }});
+        function(err,result){
+            if(err) {
+                console.error(err);
+            }
+            else {
+                console.log("Success!");
+                updateContracts();
+            }});
 };
 
 function updateContracts() {
-    var tx_table = $('#user_transactions tbody');
-    tx_table.empty();
-    auctions =[];
+    var tx_table = $('#user_transactions');
+    tx_table.clear();
     for (i = 0;(contractId = instance.auctions(i)) != "0x"; i++) {
         var auctionContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ended","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"beneficiary","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"bids","outputs":[{"name":"id","type":"uint256"},{"name":"value","type":"uint256"},{"name":"owner","type":"address"},{"name":"name","type":"string"},{"name":"email","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"description","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"email","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"bid_id","type":"uint256"}],"name":"select","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"string"},{"name":"_email","type":"string"}],"name":"bid","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"profile","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"bidding_end","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"tags","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"pending_returns","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_bidding_end","type":"uint256"},{"name":"_beneficiary","type":"address"},{"name":"_name","type":"string"},{"name":"_description","type":"string"},{"name":"_email","type":"string"},{"name":"_tags","type":"string"},{"name":"_profile","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"bid_id","type":"uint256"}],"name":"NewBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winner_id","type":"uint256"}],"name":"AuctionEnded","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"WithdrawAvailable","type":"event"}]);
         var auctionInstance = auctionContract.at(contractId);
-        auctions.push(auctionInstance);
-    }
-    auctions = auctions.reverse();
-    for (ai in auctions) {
-        auctionInstance = auctions[ai];
-        x=[i-ai,auctionInstance.name(),auctionInstance.email(),auctionInstance.description(),
-            auctionInstance.tags(), auctionInstance.profile() ,auctionInstance.bidding_end(),["Incomplete","Complete"][+auctionInstance.ended()]];
-        row = "<tr>";
-        for (a in x) {
-            row += "<td>"+x[a]+"</td>";
-        }
-        row += "</tr>";
-        tx_table.append(row);
+        x=[i,auctionInstance.name(),auctionInstance.email(),auctionInstance.description(),auctionInstance.tags(), auctionInstance.profile() ,auctionInstance.bidding_end(),["Incomplete","Complete"][+auctionInstance.ended()]];
+        tx_table.row.add(x).draw(false);
     }
 }

@@ -5,10 +5,21 @@ $(document).ready(function() {
 
     // Sliders Init
     // materialKit.initSliders();
+    $('#user_transactions').DataTable({
+        "order": [[ 6, "desc" ]],
+        
+    });
+    $('#user_transactions').hide();
 
     $('#show_transactions').click(function() {
-        console.log("worked");
-        $('#user_transactions').removeAttr('hidden');;
+        if ($('#user_transactions').is(":visible")) {
+            $('#user_transactions').hide();
+
+        }else{
+            $('#user_transactions').show();
+
+        }
+
     });
 
 
