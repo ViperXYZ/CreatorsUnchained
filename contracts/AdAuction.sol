@@ -1,6 +1,22 @@
 // inspired by https://solidity.readthedocs.io/en/develop/solidity-by-example.html
 pragma solidity ^0.4.21;
 
+contract AuctionList {
+    AdAuction[] public auctions;
+
+    function AuctionList() public { }
+
+    event NewAuction(uint id);
+
+    function new_auction(
+        uint bidding_end,
+        address beneficiary
+    ) public {
+        auctions.push(new AdAuction(bidding_end, beneficiary));
+        emit NewAuction(auctions.length - 1);
+    }
+}
+
 contract AdAuction {
     // Parameters of the auction. Times are either
     // absolute unix timestamps (seconds since 1970-01-01)
