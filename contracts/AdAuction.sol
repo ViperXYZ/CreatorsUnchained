@@ -13,9 +13,11 @@ contract AuctionList {
         address beneficiary,
         string name,
         string description,
-        string email
+        string email,
+        string tags,
+        string profile
     ) public {
-        auctions.push(new AdAuction(bidding_end, beneficiary, name, description, email));
+        auctions.push(new AdAuction(bidding_end, beneficiary, name, description, email, tags, profile));
         emit NewAuction(auctions.length - 1);
     }
 }
@@ -29,6 +31,8 @@ contract AdAuction {
     string public name;
     string public description;
     string public email;
+    string public tags;
+    string public profile;
 
     struct Bid {
         uint id;
@@ -65,13 +69,17 @@ contract AdAuction {
         address _beneficiary,
         string _name,
         string _description,
-        string _email
+        string _email,
+        string _tags,
+        string _profile
     ) public {
         beneficiary = _beneficiary;
         bidding_end = _bidding_end;
         name = _name;
         description = _description;
         email = _email;
+        tags = _tags;
+        profile = _profile;
     }
 
     /// Bid on the auction with the value sent
