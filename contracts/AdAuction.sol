@@ -15,17 +15,18 @@ contract AdAuction {
     }
 
     // Storage for all bids
-    Bid[] bids;
+    Bid[] public bids;
 
     // Allowed withdrawals of previous bids
-    mapping(address => uint) pending_returns;
+    mapping(address => uint) public pending_returns;
 
     // Set to true at the end, disallows any change
-    bool ended;
+    bool public ended;
 
     // Events that will be fired on changes.
     event NewBid(uint bid_id);
     event AuctionEnded(uint winner_id);
+    event WithdrawAvailable(address owner, uint value);
 
     // The following is a so-called natspec comment,
     // recognizable by the three slashes.
@@ -94,7 +95,12 @@ contract AdAuction {
 
         ended = true;
         Bid storage it = bids[bid_id];
-        emit AuctionEnded(it.id);
+        for (uint i = 0; i < bids.length; i++) {
+            pending_returns[bids[i].owner] = bids[i].value;
+            emit WithdrawAvailable(bids[i].owner, bids[i].value);
+        }
         pending_returns[beneficiary] = it.value;
+        emit WithdrawAvailable(beneficiary, it.value);
+        emit AuctionEnded(it.id);
     }
 }
