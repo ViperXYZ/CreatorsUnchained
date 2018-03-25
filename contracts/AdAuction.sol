@@ -43,7 +43,7 @@ contract AdAuction {
     }
 
     // Storage for all bids
-    Bid[] public bids;
+    Bid[] bids;
 
     // Allowed withdrawals of previous bids
     mapping(address => uint) public pending_returns;
@@ -56,15 +56,19 @@ contract AdAuction {
     event AuctionEnded(uint winner_id);
     event WithdrawAvailable(address owner, uint value);
 
-    function get_bid(uint _id) public view returns (uint id, uint value, address owner, string _name, string _email) {
-        Bid storage it = bids[_id];
-        id = it.id;
-        value = it.value;
-        owner = it.owner;
-        _name = it.name;
-        _email = it.email;
+    function get_bid_value(uint _id) public returns (uint) {
+        return bids[_id].value;
     }
-    function num_bids() public view returns (uint) {
+    function get_bid_owner(uint _id) public returns (address) {
+        return bids[_id].owner;
+    }
+    function get_bid_name(uint _id) public returns (string) {
+        return bids[_id].name;
+    }
+    function get_bid_email(uint _id) public returns (string) {
+        return bids[_id].email;
+    }
+    function num_bids() public returns (uint) {
         return bids.length;
     }
 
