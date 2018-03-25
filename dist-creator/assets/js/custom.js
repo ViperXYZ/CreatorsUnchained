@@ -5,10 +5,6 @@ $(document).ready(function() {
 
     // Sliders Init
     // materialKit.initSliders();
-    $('#user_transactions').DataTable({
-        "order": [[ 6, "desc" ]],
-        
-    });
     $('#user_transactions').hide();
 
     $('#show_transactions').click(function() {
