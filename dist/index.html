@@ -17,6 +17,8 @@
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./assets/js/datatables.min.css"/>
+    <!-- <link rel="stylesheet" href="./assets/css/bootstrap4.min.css"/> -->
 	<link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
 	<!-- Documentation extras -->
 	<!-- CSS Just for demo purpose, don't include it in your project -->
@@ -29,7 +31,7 @@
 
 		<div class="container">
 			<div class="navbar-translate">
-				<img src="./assets/img/ethvisuallogo.svg" height=50" class="d-inline-block align-top" alt=""> 
+				<img src="./assets/img/ethvisuallogo.svg" height=50" class="d-inline-block align-top" alt="">
 				<a class="navbar-brand" href="./index.html" style="font-size: 1.5rem;">Creators <b>Unchained</b>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,10 +47,9 @@
 	</div>
 	<div class="main main-raised">
 
-
 		<div class="section section-basic">
 			<div class="container">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-12">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search">
@@ -58,8 +59,24 @@
 						</div>
 					</div>
 				</div>
-				<br>
-				<div class="row text-center">
+				<br> -->
+                <table class="table table-hover" id="creators_bids" hidden="">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Tags</th>
+                            <th scope="col">Profile</th>
+                            <th scope="col">Time Remaining</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<!-- <div class="row text-center">
 					<ul class="list-group">
 						<li class="list-group-item active">Cras justo odio</li>
 						<li class="list-group-item">Dapibus ac facilisis in</li>
@@ -67,7 +84,7 @@
 						<li class="list-group-item">Porta ac consectetur ac</li>
 						<li class="list-group-item">Vestibulum at eros</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 
 		</div>
@@ -93,16 +110,9 @@
 	<script src="./assets/js/material-kit.js?v=2.0.2"></script>
 	<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
 	<script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
-	<script>
-		$(document).ready(function() {
-
-            //init DateTimePickers
-            materialKit.initFormExtendedDatetimepickers();
-
-            // Sliders Init
-            materialKit.initSliders();
-        });
-    </script>
+    <script type="text/javascript" src="assets/js/datatables.min.js"></script>
+    <script type="text/javascript src="web3.min.js"></script>
+    <script type="text/javascript" src="advertisers.js"></script>
 </body>
 
 </html>
