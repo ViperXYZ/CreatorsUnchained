@@ -16,19 +16,22 @@
 		ADB
 	</title>
 	<!--     Fonts and icons     -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+	/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
-	<link rel="stylesheet" href="./assets/css/dataTables.bootstrap4.min.css">
-
+	<link rel="stylesheet" href="./assets/css/material-kit.min.css?v=2.0.2">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css"
+	 integrity="sha256-LpykTdjMm+jVLpDWiYOkH8bYiithb4gajMYnIngj128=" crossorigin="anonymous" />
 </head>
 
 <body class="index-page ">
-	<nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg  bg-primary" color-on-scroll="100" id="sectionsNav">
+	<nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg  bg-primary" color-on-scroll="100"
+	 id="sectionsNav">
 		<div class="container">
 			<div class="navbar-translate">
-				<img src="./assets/img/ethvisuallogo.svg" height=50" class="d-inline-block align-top" alt=""> 
-				<a class="navbar-brand" href="./index.html" style="font-size: 1.5rem;">Creators <b>Unchained</b>
+				<img src="./assets/img/ethvisuallogo.svg" height="50" class="d-inline-block align-top" alt="">
+				<a class="navbar-brand" href="./index.html" style="font-size: 1.5rem;">Creators
+					<b>Unchained</b>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -54,8 +57,7 @@
 										<i class="material-icons">person</i>
 									</span>
 								</div>
-								<input type="text" class="form-control" placeholder="Name"
-								id="name">
+								<input type="text" class="form-control" placeholder="Name" id="name">
 							</div>
 						</div>
 					</div>
@@ -67,8 +69,7 @@
 										<i class="material-icons">email</i>
 									</span>
 								</div>
-								<input type="text" class="form-control" placeholder="Email"
-								id="email">
+								<input type="text" class="form-control" placeholder="Email" id="email">
 							</div>
 						</div>
 					</div>
@@ -80,8 +81,7 @@
 										<i class="material-icons">description</i>
 									</span>
 								</div>
-								<input type="text" class="form-control" placeholder="Description"
-								id="desc">
+								<input type="text" class="form-control" placeholder="Description" id="desc">
 							</div>
 						</div>
 					</div>
@@ -93,8 +93,7 @@
 										<i class="material-icons">add_to_photos</i>
 									</span>
 								</div>
-								<input type="text" class="form-control" placeholder="Tags"
-								id="tags">
+								<input type="text" class="form-control" placeholder="Tags" id="tags">
 							</div>
 						</div>
 					</div>
@@ -106,8 +105,7 @@
 										<i class="material-icons">insert_link</i>
 									</span>
 								</div>
-								<input type="text" class="form-control" placeholder="Profile"
-								id="profile">
+								<input type="text" class="form-control" placeholder="Profile" id="profile">
 							</div>
 
 						</div>
@@ -120,22 +118,25 @@
 										<i class="material-icons">date_range</i>
 									</span>
 								</div>
-								<input type="text" class="form-control datetimepicker" placeholder="Deadline"
-								id="deadline">
+								<input type="text" class="form-control datetimepicker" placeholder="Deadline" id="deadline">
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-12 col-sm-12">
-						<button type="submit" class="btn btn-primary btn-raised btn-fab btn-round float-right btn-lg" id="add_contract"><i class="material-icons" id="submit">add</i></button>
+						<button type="submit" class="btn btn-primary btn-raised btn-fab btn-round float-right btn-lg" id="add_contract">
+							<i class="material-icons" id="submit">add</i>
+						</button>
 					</div>
-					<br><br>
+					<br>
+					<br>
 					<div class="col-lg-12 col-sm-12">
-						<button type="submit" class="btn btn-primary btn-raised btn-lg" id="show_transactions"><i style="font-size: 30px;" class="material-icons">view_list</i> Show Transactions</button>
+						<button type="submit" class="btn btn-primary btn-raised btn-lg" id="show_transactions">
+							<i style="font-size: 30px;" class="material-icons">view_list</i> Show Transactions</button>
 					</div>
 				</div>
 				<br>
 				<div class="row text-center">
-					<table class="table table-hover" id="user_transactions" >
+					<table class="table table-hover" id="user_transactions">
 						<thead>
 							<tr>
 								<th scope="col">ID</th>
@@ -163,23 +164,29 @@
 		</div>
 	</footer>
 	<!--   Core JS Files   -->
-	<script src="./assets/js/core/jquery.min.js"></script>
-	<script src="./assets/js/core/popper.min.js"></script>
-	<script src="./assets/js/bootstrap-material-design.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper-utils.min.js" integrity="sha256-0byKcOSLcJSkMelHK2vTRcMtZdXB91NeKrwijCTk+Hw="
+	 crossorigin="anonymous"></script>
+	<script src="./assets/js/bootstrap-material-design.min.js"></script>
 	<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-	<script src="./assets/js/plugins/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js" integrity="sha256-De/cgZoAkgvqoxL9yJpJzPHyozUETFnSv7EQGfQWQ4o="
+	 crossorigin="anonymous"></script>
 	<!--    Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-	<script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
+	 integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
 	<!--    Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="./assets/js/plugins/nouislider.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js" integrity="sha256-pFL+L+I06AXlGT2wioCBdIjqc64n94inMAG608/Vfvc="
+	 crossorigin="anonymous"></script>
 	<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-	<script src="./assets/js/material-kit.js?v=2.0.2"></script>
+	<script src="./assets/js/material-kit.min.js?v=2.0.2"></script>
 	<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
 	<script src="./assets/js/web3.min.js"></script>
-    <script src="./assets/js/jquery.dataTables.min.js"></script>
-    <script src="./assets/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js" integrity="sha256-qcV1wr+bn4NoBtxYqghmy1WIBvxeoe8vQlCowLG+cng="
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.min.js" integrity="sha256-PahDJkda1lmviWgqffy4CcrECIFPJCWoa9EAqVx7Tf8="
+	 crossorigin="anonymous"></script>
 	<script src="./assets/js/custom.js"></script>
-
 	<script src="bidding.js"></script>
 
 </body>

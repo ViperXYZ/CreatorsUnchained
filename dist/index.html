@@ -15,15 +15,13 @@
 		ADB
 	</title>
 	<!--     Fonts and icons     -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+	/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="./assets/js/datatables.min.css"/>
-    <!-- <link rel="stylesheet" href="./assets/css/bootstrap4.min.css"/> -->
-	<link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
-	<!-- Documentation extras -->
-	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link href="./assets/assets-for-demo/demo.css" rel="stylesheet" />
-	<!-- iframe removal -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/jquery.dataTables.min.css" integrity="sha256-YY1izqyhIj4W3iyJOaGWOpXDSwrHWFL4Nfk+W0LyCHE="
+	 crossorigin="anonymous" />
+	<!-- <link rel="stylesheet" href="./assets/css/bootstrap4.min.css"/> -->
+	<link rel="stylesheet" href="./assets/css/material-kit.min.css?v=2.0.2">
 </head>
 
 <body class="index-page ">
@@ -31,8 +29,9 @@
 
 		<div class="container">
 			<div class="navbar-translate">
-				<img src="./assets/img/ethvisuallogo.svg" height=50" class="d-inline-block align-top" alt="">
-				<a class="navbar-brand" href="./index.html" style="font-size: 1.5rem;">Creators <b>Unchained</b>
+				<img src="./assets/img/ethvisuallogo.svg" height="50" class="d-inline-block align-top" alt="">
+				<a class="navbar-brand" href="./index.html" style="font-size: 1.5rem;">Creators
+					<b>Unchained</b>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -49,42 +48,22 @@
 
 		<div class="section section-basic">
 			<div class="container">
-				<!-- <div class="row">
-					<div class="col-12">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search">
-							<div class="input-group-append" style="margin-left: 5px;">
-								<button type="submit" class="btn btn-white btn-raised btn-fab btn-round"><i class="material-icons">&nbsp;&nbsp;search</i></button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br> -->
-                <table class="table table-hover" id="creators_bids" hidden="">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Tags</th>
-                            <th scope="col">Profile</th>
-                            <th scope="col">Time Remaining</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-				<!-- <div class="row text-center">
-					<ul class="list-group">
-						<li class="list-group-item active">Cras justo odio</li>
-						<li class="list-group-item">Dapibus ac facilisis in</li>
-						<li class="list-group-item">Morbi leo risus</li>
-						<li class="list-group-item">Porta ac consectetur ac</li>
-						<li class="list-group-item">Vestibulum at eros</li>
-					</ul>
-				</div> -->
+				<table class="table table-hover" id="creators_bids" hidden="">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Description</th>
+							<th scope="col">Tags</th>
+							<th scope="col">Profile</th>
+							<th scope="col">Time Remaining</th>
+							<th scope="col">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 			</div>
 
 		</div>
@@ -97,22 +76,26 @@
 		</div>
 	</footer>
 	<!--   Core JS Files   -->
-	<script src="./assets/js/core/jquery.min.js"></script>
-	<script src="./assets/js/core/popper.min.js"></script>
-	<script src="./assets/js/bootstrap-material-design.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper-utils.min.js" integrity="sha256-0byKcOSLcJSkMelHK2vTRcMtZdXB91NeKrwijCTk+Hw="
+	 crossorigin="anonymous"></script>
+	<script src="./assets/js/bootstrap-material-design.min.js"></script>
 	<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-	<script src="./assets/js/plugins/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js" integrity="sha256-De/cgZoAkgvqoxL9yJpJzPHyozUETFnSv7EQGfQWQ4o="
+	 crossorigin="anonymous"></script>
 	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-	<script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
+	 integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
 	<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="./assets/js/plugins/nouislider.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js" integrity="sha256-pFL+L+I06AXlGT2wioCBdIjqc64n94inMAG608/Vfvc="
+	 crossorigin="anonymous"></script>
 	<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-	<script src="./assets/js/material-kit.js?v=2.0.2"></script>
-	<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-	<script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
-    <script type="text/javascript" src="assets/js/datatables.min.js"></script>
-    <script type="text/javascript src="web3.min.js"></script>
-    <script type="text/javascript" src="advertisers.js"></script>
+	<script src="./assets/js/material-kit.min.js?v=2.0.2"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js" integrity="sha256-qcV1wr+bn4NoBtxYqghmy1WIBvxeoe8vQlCowLG+cng="
+	 crossorigin="anonymous"></script>
+	<script type="text/javascript" src="web3.min.js"></script>
+	<script type="text/javascript" src="advertisers.js"></script>
 </body>
 
 </html>
